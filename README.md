@@ -3,6 +3,8 @@ Linux Server Configuration Project
 About the project
 - A baseline installation of a Linux distribution on a virtual machine and prepare it to host your web applications, to include installing updates, securing it from a number of attack vectors and installing/configuring web and database servers.
 
+IP ADDRESS: 54.191.54.68 HTTP ADDRESS: http://ec2-54-191-54-68.compute-1.amazonaws.com/
+
 In choosing the server:
 - Start a new Ubuntu Linux server instance on Amazon Lightsail. There are full details on setting up your Lightsail instance on the link provided [udacity_project_details](https://classroom.udacity.com/nanodegrees/nd004/parts/b2de4bd4-ef07-45b1-9f49-0e51e8f1336e/modules/56cf3482-b006-455c-8acd-26b37b6458d2/lessons/046c35ef-5bd2-4b56-83ba-a8143876165e/concepts/c4cbd3f2-9adb-45d4-8eaf-b5fc89cc606e.)
 
