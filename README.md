@@ -4,7 +4,7 @@ About the project
 - A baseline installation of a Linux distribution on a virtual machine and prepare it to host your web applications, to include installing updates, securing it from a number of attack vectors and installing/configuring web and database servers.
 
 In choosing the server:
--Start a new Ubuntu Linux server instance on Amazon Lightsail. There are full details on setting up your Lightsail instance on the link provided https://classroom.udacity.com/nanodegrees/nd004/parts/b2de4bd4-ef07-45b1-9f49-0e51e8f1336e/modules/56cf3482-b006-455c-8acd-26b37b6458d2/lessons/046c35ef-5bd2-4b56-83ba-a8143876165e/concepts/c4cbd3f2-9adb-45d4-8eaf-b5fc89cc606e.
+-Start a new Ubuntu Linux server instance on Amazon Lightsail. There are full details on setting up your Lightsail instance on the link provided [udacity_project_details](https://classroom.udacity.com/nanodegrees/nd004/parts/b2de4bd4-ef07-45b1-9f49-0e51e8f1336e/modules/56cf3482-b006-455c-8acd-26b37b6458d2/lessons/046c35ef-5bd2-4b56-83ba-a8143876165e/concepts/c4cbd3f2-9adb-45d4-8eaf-b5fc89cc606e.)
 
 Steps to Configure the server
 ssudsu
@@ -84,40 +84,40 @@ engine = create_engine('postgresql://catalog:password@localhost/catalog')
 -git clone <your_repo_url> catalog
 -cd catalog
 -nano catalog.wsgi
+
 -Then add the following in catalog.wsgi file
 
-#!/usr/bin/python
-import sys
-import logging
-logging.basicConfig(stream=sys.stderr)
-sys.path.insert(0,"/var/www/catalog/")
+    #!/usr/bin/python
+    import sys
+    import logging  
+    logging.basicConfig(stream=sys.stderr)
+    sys.path.insert(0,"/var/www/catalog/")
 
-from catalog import app as application
-application.secret_key = 'super_secret_key'
+    from catalog import app as application
+    application.secret_key = 'super_secret_key'
 
 
 11. Configure apache server
 sudo nano /etc/apache2/sites-enabled/000-default.conf
 Then add the following content:
 
-# serve catalog app
-<VirtualHost *:80>
-    ServerName ec2-54-191-54-68.compute-1.amazonaws.com
-    ServerAdmin gucejohnmikko@gmail.com
-    WSGIScriptAlias / /var/www/catalog/catalog.wsgi
-    <Directory /var/www/catalog/catalog/>
+    <VirtualHost *:80>
+     ServerName ec2-54-191-54-68.compute-1.amazonaws.com
+     ServerAdmin gucejohnmikko@gmail.com
+     WSGIScriptAlias / /var/www/catalog/catalog.wsgi
+     <Directory /var/www/catalog/catalog/>
         Order allow,deny
         Allow from all
-    </Directory>
-    Alias /static /var/www/catalog/catalog/static
-    <Directory /var/www/catalog/catalog/static/>
+     </Directory>
+        Alias /static /var/www/catalog/catalog/static
+     <Directory /var/www/catalog/catalog/static/>
         Order allow,deny
         Allow from all
-    </Directory>
-    ErrorLog ${APACHE_LOG_DIR}/error.log
-    LogLevel warn
-    CustomLog ${APACHE_LOG_DIR}/access.log combined
-</VirtualHost>
+     </Directory>
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        LogLevel warn
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+    </VirtualHost>
 
 
 12. Reload & Restart Apache Server
@@ -126,4 +126,4 @@ Then add the following content:
 
 Resources
 Amazon Lightsail
-https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
+[digitalocean](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps)
